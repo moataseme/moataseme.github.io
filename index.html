@@ -437,49 +437,111 @@
     .about-info-list li:last-child { border-bottom: none; }
     .about-info-list li .key { color: var(--cyan); min-width: 80px; }
 
-    /* ── REPOS ── */
-    .repos-grid {
+    /* ── PROJECTS ── */
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
     }
-    .repo-card {
+    .project-card {
       background: var(--card);
       border: 1px solid var(--border);
-      padding: 28px;
       text-decoration: none;
       color: inherit;
       display: flex; flex-direction: column;
-      gap: 12px;
-      transition: border-color 0.3s, transform 0.3s;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
       position: relative;
       overflow: hidden;
     }
-    .repo-card::after {
-      content: '→';
-      position: absolute;
-      top: 24px; right: 24px;
-      font-size: 18px;
-      color: var(--muted);
-      transition: color 0.2s, transform 0.2s;
+    .project-card:hover {
+      border-color: rgba(99,255,190,0.35);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
     }
-    .repo-card:hover { border-color: rgba(99,255,190,0.3); transform: translateY(-4px); }
-    .repo-card:hover::after { color: var(--green); transform: translate(3px, -3px); }
-    .repo-name {
-      font-family: var(--font-mono);
-      font-size: 14px;
-      color: var(--green);
+    /* top accent bar per card */
+    .project-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--green), var(--cyan));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .project-card:hover::before { opacity: 1; }
+
+    .project-screenshot {
+      width: 100%; height: 190px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      transition: filter 0.3s;
+      filter: grayscale(20%) brightness(0.85);
+    }
+    .project-card:hover .project-screenshot {
+      filter: grayscale(0%) brightness(1);
+    }
+
+    .project-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+
+    .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .project-name {
+      font-family: var(--font-display);
+      font-size: 17px;
       font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
     }
-    .repo-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
-    .repo-meta { display: flex; gap: 16px; align-items: center; margin-top: auto; }
-    .repo-lang {
+    .project-live {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--green);
+      border: 1px solid rgba(99,255,190,0.25);
+      padding: 3px 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .project-live::before {
+      content: '';
+      width: 5px; height: 5px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(99,255,190,0.5); }
+      50%      { opacity: 0.7; box-shadow: 0 0 0 4px rgba(99,255,190,0); }
+    }
+
+    .project-url {
       font-family: var(--font-mono);
       font-size: 11px;
-      color: var(--orange);
-      display: flex; align-items: center; gap: 5px;
+      color: var(--cyan);
+      letter-spacing: 0.04em;
+      opacity: 0.7;
     }
-    .repo-lang::before { content: '●'; font-size: 8px; }
+    .project-desc { font-size: 14px; color: var(--muted); line-height: 1.65; flex: 1; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 4px; }
+    .project-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 4px 10px;
+      background: rgba(99,255,190,0.05);
+      border: 1px solid rgba(99,255,190,0.15);
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+    .project-arrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: 11px;
+      color: var(--muted);
+      margin-top: 8px;
+      transition: color 0.2s, gap 0.2s;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .project-card:hover .project-arrow { color: var(--green); gap: 10px; }
 
     /* ── TICKER ── */
     .ticker-wrap {
@@ -705,8 +767,8 @@
         <div class="stat-label">Technologies</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Lines of Code</div>
+        <div class="stat-num">5</div>
+        <div class="stat-label">Live Projects</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">01</div>
@@ -822,32 +884,125 @@
     <section id="projects">
       <div class="reveal">
         <div class="section-tag">Work</div>
-        <h2 class="section-title">Featured<br>Projects</h2>
+        <h2 class="section-title">Live in<br>Production</h2>
       </div>
-      <div class="repos-grid">
-        <a href="https://github.com/moataseme/todo" class="repo-card reveal" target="_blank">
-          <div class="repo-name">📋 todo</div>
-          <div class="repo-desc">A full-featured Todo list application built with Laravel 8 and Vue.js — clean architecture, smooth UX.</div>
-          <div class="repo-meta">
-            <span class="repo-lang">PHP</span>
-            <span style="font-family: var(--font-mono); font-size:11px; color:var(--muted);">★ 2 · Fork 3</span>
+      <div class="projects-grid">
+
+        <!-- GEC Egypt -->
+        <a href="https://gecegypt.com" class="project-card reveal" target="_blank" style="transition-delay:0s">
+          <img class="project-screenshot"
+            src="https://api.screenshotone.com/animate?url=https://gecegypt.com&delay=2&block_ads=true&block_cookie_banners=true&viewport_width=1280&viewport_height=800&image_quality=80"
+            onerror="this.style.background='linear-gradient(135deg,#101828,#0c1120)';this.style.display='flex';this.removeAttribute('src');"
+            alt="GEC Egypt" loading="lazy" />
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name">GEC Egypt</div>
+              <span class="project-live">LIVE</span>
+            </div>
+            <div class="project-url">gecegypt.com</div>
+            <div class="project-desc">Full platform for Global Educational Consultants — Egypt's leading dyslexia & learning support centre. Bilingual EN/AR, user auth, application flows, and shop integration.</div>
+            <div class="project-tags">
+              <span class="project-tag">Laravel</span>
+              <span class="project-tag">Vue.js</span>
+              <span class="project-tag">MySQL</span>
+              <span class="project-tag">Bilingual</span>
+            </div>
+            <div class="project-arrow">Visit Site →</div>
           </div>
         </a>
-        <a href="https://github.com/moataseme/todo-auth" class="repo-card reveal" style="transition-delay:0.1s" target="_blank">
-          <div class="repo-name">🔐 todo-auth</div>
-          <div class="repo-desc">Todo app with full authentication system, built on Laravel 8 and Vue — secure, user-centric design.</div>
-          <div class="repo-meta">
-            <span class="repo-lang">PHP</span>
-            <span style="font-family: var(--font-mono); font-size:11px; color:var(--muted);">Laravel + Vue</span>
+
+        <!-- Arabic Dyslexia Screener -->
+        <a href="https://screener.gecegypt.com/kids" class="project-card reveal" target="_blank" style="transition-delay:0.1s">
+          <img class="project-screenshot"
+            src="https://api.screenshotone.com/animate?url=https://screener.gecegypt.com/kids&delay=2&block_ads=true&viewport_width=1280&viewport_height=800&image_quality=80"
+            onerror="this.style.background='linear-gradient(135deg,#101828,#0c1120)';this.style.display='flex';this.removeAttribute('src');"
+            alt="Dyslexia Screener" loading="lazy" />
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name">Arabic Dyslexia Screener</div>
+              <span class="project-live">LIVE</span>
+            </div>
+            <div class="project-url">screener.gecegypt.com/kids</div>
+            <div class="project-desc">Scientifically-backed Arabic dyslexia screening tool for children. Child-friendly UI, bilingual support, and detailed assessment reports.</div>
+            <div class="project-tags">
+              <span class="project-tag">Laravel</span>
+              <span class="project-tag">PHP</span>
+              <span class="project-tag">MySQL</span>
+              <span class="project-tag">Arabic RTL</span>
+            </div>
+            <div class="project-arrow">Visit Site →</div>
           </div>
         </a>
-        <a href="https://github.com/moataseme/icons" class="repo-card reveal" style="transition-delay:0.2s" target="_blank">
-          <div class="repo-name">🎨 icons</div>
-          <div class="repo-desc">A curated icon resource repository — useful assets for modern web projects and UI work.</div>
-          <div class="repo-meta">
-            <span class="repo-lang">Assets</span>
+
+        <!-- LTA Platform -->
+        <a href="https://lta.gecegypt.com" class="project-card reveal" target="_blank" style="transition-delay:0.2s">
+          <img class="project-screenshot"
+            src="https://api.screenshotone.com/animate?url=https://lta.gecegypt.com&delay=2&block_ads=true&viewport_width=1280&viewport_height=800&image_quality=80"
+            onerror="this.style.background='linear-gradient(135deg,#101828,#0c1120)';this.style.display='flex';this.removeAttribute('src');"
+            alt="LTA Platform" loading="lazy" />
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name">LTA — E-Learning Platform</div>
+              <span class="project-live">LIVE</span>
+            </div>
+            <div class="project-url">lta.gecegypt.com</div>
+            <div class="project-desc">Complete online learning platform empowering educators, parents & learners. Recorded courses, live sessions, digital resources, and full instructor management.</div>
+            <div class="project-tags">
+              <span class="project-tag">Laravel</span>
+              <span class="project-tag">Vue.js</span>
+              <span class="project-tag">MySQL</span>
+              <span class="project-tag">E-Learning</span>
+            </div>
+            <div class="project-arrow">Visit Site →</div>
           </div>
         </a>
+
+        <!-- GEC Shop -->
+        <a href="https://shop.gecegypt.com" class="project-card reveal" target="_blank" style="transition-delay:0.3s">
+          <img class="project-screenshot"
+            src="https://api.screenshotone.com/animate?url=https://shop.gecegypt.com&delay=2&block_ads=true&viewport_width=1280&viewport_height=800&image_quality=80"
+            onerror="this.style.background='linear-gradient(135deg,#101828,#0c1120)';this.style.display='flex';this.removeAttribute('src');"
+            alt="GEC Shop" loading="lazy" />
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name">GEC Shop</div>
+              <span class="project-live">LIVE</span>
+            </div>
+            <div class="project-url">shop.gecegypt.com</div>
+            <div class="project-desc">Production e-commerce store for GEC's educational products. Full catalogue, cart, checkout, and order management tailored for educators and families.</div>
+            <div class="project-tags">
+              <span class="project-tag">Laravel</span>
+              <span class="project-tag">Vue.js</span>
+              <span class="project-tag">MySQL</span>
+              <span class="project-tag">E-Commerce</span>
+            </div>
+            <div class="project-arrow">Visit Site →</div>
+          </div>
+        </a>
+
+        <!-- Reham Diva -->
+        <a href="https://rehamdiva.com" class="project-card reveal" target="_blank" style="transition-delay:0.4s">
+          <img class="project-screenshot"
+            src="https://api.screenshotone.com/animate?url=https://rehamdiva.com&delay=2&block_ads=true&viewport_width=1280&viewport_height=800&image_quality=80"
+            onerror="this.style.background='linear-gradient(135deg,#101828,#0c1120)';this.style.display='flex';this.removeAttribute('src');"
+            alt="Reham Diva" loading="lazy" />
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-name">Reham Diva</div>
+              <span class="project-live">LIVE</span>
+            </div>
+            <div class="project-url">rehamdiva.com</div>
+            <div class="project-desc">Arabic coaching & courses platform focused on feminine empowerment and personal growth. Course catalogue, certificates, and a subscription-based learner panel.</div>
+            <div class="project-tags">
+              <span class="project-tag">Next.js</span>
+              <span class="project-tag">React</span>
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">Arabic RTL</span>
+            </div>
+            <div class="project-arrow">Visit Site →</div>
+          </div>
+        </a>
+
       </div>
     </section>
   </div>
@@ -865,7 +1020,7 @@
           <a href="https://github.com/moataseme" class="social-link" target="_blank">
             <span class="social-icon">⬡</span> GitHub
           </a>
-          <a href="mailto:contact@moataseme.dev" class="social-link">
+          <a href="/cdn-cgi/l/email-protection#b6d5d9d8c2d7d5c2f6dbd9d7c2d7c5d3dbd398d2d3c0" class="social-link">
             <span class="social-icon">✉</span> Email
           </a>
           <a href="https://linkedin.com/in/moataseme" class="social-link" target="_blank">
@@ -888,7 +1043,7 @@
     </footer>
   </div>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ── Cursor
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursor-ring');
@@ -929,11 +1084,4 @@
       drops.forEach((y, i) => {
         const char = chars[Math.floor(Math.random() * chars.length)];
         ctx.fillText(char, i * 20, y * 16);
-        if (y * 16 > canvas.height && Math.random() > 0.975) drops[i] = 0;
-        else drops[i] += 0.5;
-      });
-    }
-    setInterval(drawRain, 50);
-  </script>
-</body>
-</html>
+        if (y * 16 > canvas.

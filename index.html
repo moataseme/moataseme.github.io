@@ -22,11 +22,8 @@
       --font-mono: 'Space Mono', monospace;
       --font-body: 'DM Sans', sans-serif;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -34,7 +31,6 @@
       overflow-x: hidden;
       cursor: none;
     }
-
     /* Custom cursor */
     .cursor {
       width: 12px; height: 12px;
@@ -58,7 +54,6 @@
       transition: transform 0.18s cubic-bezier(.23,1,.32,1), width 0.2s, height 0.2s;
       opacity: 0.5;
     }
-
     /* Noise overlay */
     body::before {
       content: '';
@@ -68,7 +63,6 @@
       pointer-events: none;
       z-index: 9000;
     }
-
     /* ── GRID BG ── */
     .grid-bg {
       position: fixed; inset: 0;
@@ -79,7 +73,6 @@
       pointer-events: none;
       z-index: 0;
     }
-
     /* ── GLOW ORBS ── */
     .orb {
       position: fixed;
@@ -92,15 +85,12 @@
     .orb-1 { width: 500px; height: 500px; top: -200px; left: -150px; background: rgba(99,255,190,0.06); }
     .orb-2 { width: 400px; height: 400px; bottom: 0; right: -100px; background: rgba(0,212,255,0.06); animation-delay: -7s; }
     .orb-3 { width: 300px; height: 300px; top: 40%; left: 40%; background: rgba(176,109,255,0.05); animation-delay: -14s; }
-
     @keyframes drift {
       from { transform: translate(0,0) scale(1); }
       to   { transform: translate(40px, 30px) scale(1.08); }
     }
-
     /* ── MAIN LAYOUT ── */
     .container { max-width: 1100px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
-
     /* ── NAV ── */
     nav {
       display: flex; align-items: center; justify-content: space-between;
@@ -124,7 +114,6 @@
       font-family: var(--font-mono);
     }
     .nav-links a:hover { color: var(--green); }
-
     /* ── HERO ── */
     .hero {
       min-height: 92vh;
@@ -132,7 +121,6 @@
       padding: 80px 0;
     }
     .hero-inner { width: 100%; }
-
     .hero-eyebrow {
       font-family: var(--font-mono);
       font-size: 12px;
@@ -148,7 +136,6 @@
       width: 32px; height: 1px;
       background: var(--green);
     }
-
     .hero-name {
       font-family: var(--font-display);
       font-size: clamp(52px, 8vw, 112px);
@@ -166,7 +153,6 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
     .hero-title {
       font-family: var(--font-display);
       font-size: clamp(18px, 3vw, 28px);
@@ -176,7 +162,6 @@
       animation: fadeUp 0.7s 0.3s ease both;
     }
     .hero-title .accent { color: var(--orange); }
-
     .hero-bio {
       font-size: 16px;
       line-height: 1.75;
@@ -185,7 +170,6 @@
       animation: fadeUp 0.7s 0.4s ease both;
       margin-bottom: 48px;
     }
-
     .hero-cta {
       display: flex; gap: 16px; flex-wrap: wrap;
       animation: fadeUp 0.7s 0.5s ease both;
@@ -205,7 +189,6 @@
       clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(99,255,190,0.3); }
-
     .btn-ghost {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 13px 27px;
@@ -220,7 +203,6 @@
       clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
     }
     .btn-ghost:hover { border-color: var(--green); color: var(--green); }
-
     /* floating badge */
     .hero-badge {
       position: absolute;
@@ -265,7 +247,6 @@
     }
     @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     @keyframes counter-spin { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
-
     /* ── SECTION SHARED ── */
     section { padding: 100px 0; position: relative; z-index: 1; }
     .section-tag {
@@ -286,7 +267,6 @@
       line-height: 1.05;
       margin-bottom: 60px;
     }
-
     /* ── STATS ROW ── */
     .stats-row {
       display: grid;
@@ -315,7 +295,6 @@
       margin-bottom: 8px;
     }
     .stat-label { font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
-
     /* ── SKILLS ── */
     .skills-grid {
       display: grid;
@@ -340,9 +319,7 @@
     .skill-category.backend::before  { background: linear-gradient(90deg, var(--orange), #ff4d94); }
     .skill-category.database::before { background: linear-gradient(90deg, var(--cyan), var(--purple)); }
     .skill-category.devops::before   { background: linear-gradient(90deg, var(--purple), var(--green)); }
-
     .skill-category:hover { border-color: rgba(99,255,190,0.3); transform: translateY(-4px); }
-
     .skill-cat-title {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -366,7 +343,6 @@
       cursor: default;
     }
     .skill-tag:hover { border-color: var(--green); color: var(--green); background: rgba(99,255,190,0.05); }
-
     /* ── ABOUT ── */
     .about-grid {
       display: grid;
@@ -375,7 +351,6 @@
       align-items: center;
     }
     @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; } }
-
     .about-text p {
       font-size: 16px;
       line-height: 1.8;
@@ -383,7 +358,6 @@
       margin-bottom: 20px;
     }
     .about-text p strong { color: var(--text); }
-
     .about-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -436,113 +410,49 @@
     }
     .about-info-list li:last-child { border-bottom: none; }
     .about-info-list li .key { color: var(--cyan); min-width: 80px; }
-
-    /* ── PROJECTS ── */
-    .projects-grid {
+    /* ── REPOS ── */
+    .repos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
     }
-    .project-card {
+    .repo-card {
       background: var(--card);
       border: 1px solid var(--border);
+      padding: 28px;
       text-decoration: none;
       color: inherit;
       display: flex; flex-direction: column;
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      gap: 12px;
+      transition: border-color 0.3s, transform 0.3s;
       position: relative;
       overflow: hidden;
     }
-    .project-card:hover {
-      border-color: rgba(99,255,190,0.35);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    .repo-card::after {
+      content: '→';
+      position: absolute;
+      top: 24px; right: 24px;
+      font-size: 18px;
+      color: var(--muted);
+      transition: color 0.2s, transform 0.2s;
     }
-    /* top accent bar per card */
-    .project-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--green), var(--cyan));
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .project-card:hover::before { opacity: 1; }
-
-    .project-screenshot {
-      width: 100%; height: 190px;
-      object-fit: cover;
-      object-position: top;
-      display: block;
-      border-bottom: 1px solid var(--border);
-      background: var(--surface);
-      transition: filter 0.3s;
-      filter: grayscale(20%) brightness(0.85);
-    }
-    .project-card:hover .project-screenshot {
-      filter: grayscale(0%) brightness(1);
-    }
-
-    .project-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-
-    .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-    .project-name {
-      font-family: var(--font-display);
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.2;
-    }
-    .project-live {
-      display: inline-flex; align-items: center; gap: 5px;
-      font-family: var(--font-mono); font-size: 10px;
+    .repo-card:hover { border-color: rgba(99,255,190,0.3); transform: translateY(-4px); }
+    .repo-card:hover::after { color: var(--green); transform: translate(3px, -3px); }
+    .repo-name {
+      font-family: var(--font-mono);
+      font-size: 14px;
       color: var(--green);
-      border: 1px solid rgba(99,255,190,0.25);
-      padding: 3px 8px;
-      white-space: nowrap;
-      flex-shrink: 0;
+      font-weight: 700;
     }
-    .project-live::before {
-      content: '';
-      width: 5px; height: 5px;
-      background: var(--green);
-      border-radius: 50%;
-      animation: pulse 1.8s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(99,255,190,0.5); }
-      50%      { opacity: 0.7; box-shadow: 0 0 0 4px rgba(99,255,190,0); }
-    }
-
-    .project-url {
+    .repo-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .repo-meta { display: flex; gap: 16px; align-items: center; margin-top: auto; }
+    .repo-lang {
       font-family: var(--font-mono);
       font-size: 11px;
-      color: var(--cyan);
-      letter-spacing: 0.04em;
-      opacity: 0.7;
+      color: var(--orange);
+      display: flex; align-items: center; gap: 5px;
     }
-    .project-desc { font-size: 14px; color: var(--muted); line-height: 1.65; flex: 1; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 4px; }
-    .project-tag {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      padding: 4px 10px;
-      background: rgba(99,255,190,0.05);
-      border: 1px solid rgba(99,255,190,0.15);
-      color: var(--muted);
-      letter-spacing: 0.06em;
-    }
-    .project-arrow {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-family: var(--font-mono); font-size: 11px;
-      color: var(--muted);
-      margin-top: 8px;
-      transition: color 0.2s, gap 0.2s;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .project-card:hover .project-arrow { color: var(--green); gap: 10px; }
-
+    .repo-lang::before { content: '●'; font-size: 8px; }
     /* ── TICKER ── */
     .ticker-wrap {
       overflow: hidden;
@@ -568,7 +478,6 @@
     }
     .ticker-item::before { content: '◆'; color: var(--green); font-size: 6px; }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
     /* ── CONTACT ── */
     .contact-inner {
       display: flex;
@@ -592,7 +501,6 @@
     }
     .contact-sub { font-size: 16px; color: var(--muted); max-width: 440px; }
     .contact-links { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
-
     .social-link {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 12px 20px;
@@ -607,7 +515,6 @@
     }
     .social-link:hover { border-color: var(--green); color: var(--green); background: rgba(99,255,190,0.05); }
     .social-icon { font-size: 16px; }
-
     /* ── FOOTER ── */
     footer {
       padding: 40px 0;
@@ -626,7 +533,6 @@
       letter-spacing: 0.1em;
     }
     footer .copy span { color: var(--green); }
-
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
@@ -636,7 +542,6 @@
       from { opacity: 0; transform: translateY(-16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
     .reveal {
       opacity: 0;
       transform: translateY(32px);
@@ -646,18 +551,15 @@
       opacity: 1;
       transform: translateY(0);
     }
-
     /* ── DIVIDER ── */
     .divider {
       width: 100%; height: 1px;
       background: linear-gradient(90deg, transparent, var(--border), transparent);
     }
-
     /* ── SCROLLBAR ── */
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
-
     /* ── CODE RAIN ── */
     #canvas-bg {
       position: fixed;
@@ -666,7 +568,6 @@
       z-index: 0;
       opacity: 0.03;
     }
-
     @media (max-width: 600px) {
       nav { flex-direction: column; gap: 16px; }
       .hero { padding: 60px 0; }
@@ -674,18 +575,15 @@
   </style>
 </head>
 <body>
-
   <!-- Cursor -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
-
   <!-- BG effects -->
   <div class="grid-bg"></div>
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
   <canvas id="canvas-bg"></canvas>
-
   <!-- Ticker -->
   <div class="ticker-wrap">
     <div class="ticker" id="ticker">
@@ -705,7 +603,6 @@
       <span class="ticker-item">React · TypeScript</span>
     </div>
   </div>
-
   <!-- NAV -->
   <div class="container">
     <nav>
@@ -718,7 +615,6 @@
       </ul>
     </nav>
   </div>
-
   <!-- HERO -->
   <div class="container">
     <section class="hero" style="position: relative;">
@@ -741,7 +637,6 @@
           <a href="#contact" class="btn-ghost">Get in Touch</a>
         </div>
       </div>
-
       <!-- floating ring badge -->
       <div class="hero-badge">
         <div class="badge-ring">
@@ -754,7 +649,6 @@
       </div>
     </section>
   </div>
-
   <!-- STATS -->
   <div class="container">
     <div class="stats-row reveal">
@@ -767,8 +661,8 @@
         <div class="stat-label">Technologies</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">5</div>
-        <div class="stat-label">Live Projects</div>
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Lines of Code</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">01</div>
@@ -776,7 +670,6 @@
       </div>
     </div>
   </div>
-
   <!-- SKILLS -->
   <div class="container">
     <section id="skills">
@@ -832,7 +725,6 @@
       </div>
     </section>
   </div>
-
   <!-- ABOUT -->
   <div class="container">
     <section id="about">
@@ -875,138 +767,80 @@
       </div>
     </section>
   </div>
-
   <!-- DIVIDER -->
   <div class="divider"></div>
-
   <!-- PROJECTS -->
   <div class="container">
     <section id="projects">
       <div class="reveal">
         <div class="section-tag">Work</div>
-        <h2 class="section-title">Live in<br>Production</h2>
+        <h2 class="section-title">Live<br>Projects</h2>
+        <p style="font-size: 16px; color: var(--muted); max-width: 600px; margin-bottom: 40px;">
+          Real-world applications shipped to production — used by real people every day.
+        </p>
       </div>
-      <div class="projects-grid">
-
+      <div class="repos-grid">
         <!-- GEC Egypt -->
-        <a href="https://gecegypt.com" class="project-card reveal" target="_blank" style="transition-delay:0s">
-          <img class="project-screenshot"
-            src="https://api.screenshotone.com/animate?url=https://gecegypt.com&delay=2&block_ads=true&block_cookie_banners=true&viewport_width=1280&viewport_height=800&image_quality=80"
-            onerror="this.style.background='linear-gradient(135deg,#101828,#0c1120)';this.style.display='flex';this.removeAttribute('src');"
-            alt="GEC Egypt" loading="lazy" />
-          <div class="project-body">
-            <div class="project-header">
-              <div class="project-name">GEC Egypt</div>
-              <span class="project-live">LIVE</span>
-            </div>
-            <div class="project-url">gecegypt.com</div>
-            <div class="project-desc">Full platform for Global Educational Consultants — Egypt's leading dyslexia & learning support centre. Bilingual EN/AR, user auth, application flows, and shop integration.</div>
-            <div class="project-tags">
-              <span class="project-tag">Laravel</span>
-              <span class="project-tag">Vue.js</span>
-              <span class="project-tag">MySQL</span>
-              <span class="project-tag">Bilingual</span>
-            </div>
-            <div class="project-arrow">Visit Site →</div>
+        <a href="https://gecegypt.com" class="repo-card reveal" target="_blank">
+          <div class="repo-name">🎓 GEC Egypt</div>
+          <div class="repo-desc">Full platform for Global Educational Consultants — Egypt's leading dyslexia & learning support centre. Bilingual (EN/AR), user auth, application flows, and shop integration.</div>
+          <div class="repo-meta">
+            <span class="repo-lang">Laravel</span>
+            <span style="font-family: var(--font-mono); font-size:11px; color:var(--green);">● LIVE</span>
           </div>
         </a>
 
         <!-- Arabic Dyslexia Screener -->
-        <a href="https://screener.gecegypt.com/kids" class="project-card reveal" target="_blank" style="transition-delay:0.1s">
-          <img class="project-screenshot"
-            src="https://api.screenshotone.com/animate?url=https://screener.gecegypt.com/kids&delay=2&block_ads=true&viewport_width=1280&viewport_height=800&image_quality=80"
-            onerror="this.style.background='linear-gradient(135deg,#101828,#0c1120)';this.style.display='flex';this.removeAttribute('src');"
-            alt="Dyslexia Screener" loading="lazy" />
-          <div class="project-body">
-            <div class="project-header">
-              <div class="project-name">Arabic Dyslexia Screener</div>
-              <span class="project-live">LIVE</span>
-            </div>
-            <div class="project-url">screener.gecegypt.com/kids</div>
-            <div class="project-desc">Scientifically-backed Arabic dyslexia screening tool for children. Child-friendly UI, bilingual support, and detailed assessment reports.</div>
-            <div class="project-tags">
-              <span class="project-tag">Laravel</span>
-              <span class="project-tag">PHP</span>
-              <span class="project-tag">MySQL</span>
-              <span class="project-tag">Arabic RTL</span>
-            </div>
-            <div class="project-arrow">Visit Site →</div>
+        <a href="https://screener.gecegypt.com/kids" class="repo-card reveal" style="transition-delay:0.1s" target="_blank">
+          <div class="repo-name">🧠 Arabic Dyslexia Screener</div>
+          <div class="repo-desc">Specialised Arabic dyslexia screening tool for children. Scientifically-backed assessments with a child-friendly UI, bilingual support, and detailed result reports.</div>
+          <div class="repo-meta">
+            <span class="repo-lang">Laravel</span>
+            <span style="font-family: var(--font-mono); font-size:11px; color:var(--green);">● LIVE</span>
           </div>
         </a>
 
-        <!-- LTA Platform -->
-        <a href="https://lta.gecegypt.com" class="project-card reveal" target="_blank" style="transition-delay:0.2s">
-          <img class="project-screenshot"
-            src="https://api.screenshotone.com/animate?url=https://lta.gecegypt.com&delay=2&block_ads=true&viewport_width=1280&viewport_height=800&image_quality=80"
-            onerror="this.style.background='linear-gradient(135deg,#101828,#0c1120)';this.style.display='flex';this.removeAttribute('src');"
-            alt="LTA Platform" loading="lazy" />
-          <div class="project-body">
-            <div class="project-header">
-              <div class="project-name">LTA — E-Learning Platform</div>
-              <span class="project-live">LIVE</span>
-            </div>
-            <div class="project-url">lta.gecegypt.com</div>
-            <div class="project-desc">Complete online learning platform empowering educators, parents & learners. Recorded courses, live sessions, digital resources, and full instructor management.</div>
-            <div class="project-tags">
-              <span class="project-tag">Laravel</span>
-              <span class="project-tag">Vue.js</span>
-              <span class="project-tag">MySQL</span>
-              <span class="project-tag">E-Learning</span>
-            </div>
-            <div class="project-arrow">Visit Site →</div>
+        <!-- LTA E-Learning -->
+        <a href="https://lta.gecegypt.com" class="repo-card reveal" style="transition-delay:0.2s" target="_blank">
+          <div class="repo-name">📚 LTA — E-Learning Platform</div>
+          <div class="repo-desc">A complete online learning platform for educators, parents & learners. Recorded courses, live sessions, digital resources, instructor management, and user auth.</div>
+          <div class="repo-meta">
+            <span class="repo-lang">Laravel</span>
+            <span style="font-family: var(--font-mono); font-size:11px; color:var(--cyan);">● LIVE</span>
           </div>
         </a>
 
         <!-- GEC Shop -->
-        <a href="https://shop.gecegypt.com" class="project-card reveal" target="_blank" style="transition-delay:0.3s">
-          <img class="project-screenshot"
-            src="https://api.screenshotone.com/animate?url=https://shop.gecegypt.com&delay=2&block_ads=true&viewport_width=1280&viewport_height=800&image_quality=80"
-            onerror="this.style.background='linear-gradient(135deg,#101828,#0c1120)';this.style.display='flex';this.removeAttribute('src');"
-            alt="GEC Shop" loading="lazy" />
-          <div class="project-body">
-            <div class="project-header">
-              <div class="project-name">GEC Shop</div>
-              <span class="project-live">LIVE</span>
-            </div>
-            <div class="project-url">shop.gecegypt.com</div>
-            <div class="project-desc">Production e-commerce store for GEC's educational products. Full catalogue, cart, checkout, and order management tailored for educators and families.</div>
-            <div class="project-tags">
-              <span class="project-tag">Laravel</span>
-              <span class="project-tag">Vue.js</span>
-              <span class="project-tag">MySQL</span>
-              <span class="project-tag">E-Commerce</span>
-            </div>
-            <div class="project-arrow">Visit Site →</div>
+        <a href="https://shop.gecegypt.com" class="repo-card reveal" style="transition-delay:0.3s" target="_blank">
+          <div class="repo-name">🛒 GEC Shop</div>
+          <div class="repo-desc">Production e-commerce store for GEC's educational products. Full catalogue, cart, checkout, and order management tailored for educators and families across Egypt.</div>
+          <div class="repo-meta">
+            <span class="repo-lang">Laravel</span>
+            <span style="font-family: var(--font-mono); font-size:11px; color:var(--cyan);">● LIVE</span>
           </div>
         </a>
 
         <!-- Reham Diva -->
-        <a href="https://rehamdiva.com" class="project-card reveal" target="_blank" style="transition-delay:0.4s">
-          <img class="project-screenshot"
-            src="https://api.screenshotone.com/animate?url=https://rehamdiva.com&delay=2&block_ads=true&viewport_width=1280&viewport_height=800&image_quality=80"
-            onerror="this.style.background='linear-gradient(135deg,#101828,#0c1120)';this.style.display='flex';this.removeAttribute('src');"
-            alt="Reham Diva" loading="lazy" />
-          <div class="project-body">
-            <div class="project-header">
-              <div class="project-name">Reham Diva</div>
-              <span class="project-live">LIVE</span>
-            </div>
-            <div class="project-url">rehamdiva.com</div>
-            <div class="project-desc">Arabic coaching & courses platform focused on feminine empowerment and personal growth. Course catalogue, certificates, and a subscription-based learner panel.</div>
-            <div class="project-tags">
-              <span class="project-tag">Next.js</span>
-              <span class="project-tag">React</span>
-              <span class="project-tag">TypeScript</span>
-              <span class="project-tag">Arabic RTL</span>
-            </div>
-            <div class="project-arrow">Visit Site →</div>
+        <a href="https://rehamdiva.com" class="repo-card reveal" style="transition-delay:0.4s" target="_blank">
+          <div class="repo-name">✨ Reham Diva</div>
+          <div class="repo-desc">Arabic coaching & courses platform focused on feminine empowerment and personal growth. Course catalogue, certificates, and a subscription-based learner panel.</div>
+          <div class="repo-meta">
+            <span class="repo-lang">React + TS</span>
+            <span style="font-family: var(--font-mono); font-size:11px; color:var(--purple);">● LIVE</span>
           </div>
         </a>
 
+        <!-- Summary Card -->
+        <div class="repo-card reveal" style="transition-delay:0.5s; background: linear-gradient(135deg, rgba(99,255,190,0.05), rgba(0,212,255,0.05)); border-color: rgba(99,255,190,0.2); cursor: default;">
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; gap: 16px;">
+            <div style="font-size: 48px; font-weight: 800; font-family: var(--font-display); background: linear-gradient(90deg, var(--green), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1;">5</div>
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase;">Apps in Production</div>
+            <div style="font-size: 14px; color: var(--green);">Real users. Real impact. 🚀</div>
+          </div>
+        </div>
       </div>
     </section>
   </div>
-
   <!-- CONTACT -->
   <div class="container">
     <section id="contact">
@@ -1020,17 +854,16 @@
           <a href="https://github.com/moataseme" class="social-link" target="_blank">
             <span class="social-icon">⬡</span> GitHub
           </a>
-          <a href="/cdn-cgi/l/email-protection#b6d5d9d8c2d7d5c2f6dbd9d7c2d7c5d3dbd398d2d3c0" class="social-link">
+          <a href="mailto:moatasemelshawadfy@gmail.com" class="social-link">
             <span class="social-icon">✉</span> Email
           </a>
-          <a href="https://linkedin.com/in/moataseme" class="social-link" target="_blank">
+          <a href="https://www.linkedin.com/in/moatasem-elshawadfy" class="social-link" target="_blank">
             <span class="social-icon">⬡</span> LinkedIn
           </a>
         </div>
       </div>
     </section>
   </div>
-
   <!-- FOOTER -->
   <div class="container">
     <footer>
@@ -1042,8 +875,7 @@
       </div>
     </footer>
   </div>
-
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // ── Cursor
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursor-ring');
@@ -1060,14 +892,12 @@
       el.addEventListener('mouseenter', () => { ring.style.width = '56px'; ring.style.height = '56px'; cursor.style.background = 'var(--cyan)'; });
       el.addEventListener('mouseleave', () => { ring.style.width = '36px'; ring.style.height = '36px'; cursor.style.background = 'var(--green)'; });
     });
-
     // ── Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }});
     }, { threshold: 0.12 });
     reveals.forEach(el => io.observe(el));
-
     // ── Canvas rain
     const canvas = document.getElementById('canvas-bg');
     const ctx = canvas.getContext('2d');
@@ -1084,4 +914,11 @@
       drops.forEach((y, i) => {
         const char = chars[Math.floor(Math.random() * chars.length)];
         ctx.fillText(char, i * 20, y * 16);
-        if (y * 16 > canvas.
+        if (y * 16 > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        else drops[i] += 0.5;
+      });
+    }
+    setInterval(drawRain, 50);
+  </script>
+</body>
+</html>
